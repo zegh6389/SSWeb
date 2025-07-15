@@ -1,0 +1,66 @@
+body {
+    background-color: #FFFC00;
+    font-family: 'Avenir Next', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 300px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 40px;
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #EFEFEF;
+    font-size: 16px;
+    text-align: center;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #00B4D8;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    color: #00B4D8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.congrats-container {
+    text-align: center;
+    color: #00B4D8;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
