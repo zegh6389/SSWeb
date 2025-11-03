@@ -7,11 +7,30 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/device": "^7.0.2",
+    "@capacitor/geolocation": "^7.1.5",
+    "@capacitor/network": "^7.0.2",
+    "@supabase/supabase-js": "^2.78.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^4.18.2",
     "node-webhooks": "^1.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zegh6389/SSWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zegh6389/SSWeb/issues"
+  },
+  "homepage": "https://github.com/zegh6389/SSWeb#readme"
 }

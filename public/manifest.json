@@ -1,0 +1,33 @@
+{
+  "name": "OVPN Configuration Generator",
+  "short_name": "OVPN Gen",
+  "description": "Auto-generate OpenVPN configurations with comprehensive device fingerprinting",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFC00",
+  "theme_color": "#FFFC00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Generate OVPN",
+      "short_name": "Generate",
+      "description": "Quickly generate a new OVPN configuration",
+      "url": "/?action=generate"
+    }
+  ]
+}
