@@ -15,24 +15,16 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .container h1 {
     font-size: 48px;
     font-weight: 900;
     margin-bottom: 30px;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #F7DC6F, #FF6B6B);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite, textGlow 2s ease-in-out infinite alternate, bounce 2s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(255, 107, 107, 0.5),
-                 0 0 40px rgba(78, 205, 196, 0.3),
-                 0 0 60px rgba(69, 183, 209, 0.2);
+    color: #FFD700;
+    animation: bounce 2s ease-in-out infinite;
     letter-spacing: 2px;
 }
 
@@ -48,16 +40,7 @@ body {
     }
 }
 
-@keyframes textGlow {
-    from {
-        filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.8))
-                drop-shadow(0 0 20px rgba(78, 205, 196, 0.6));
-    }
-    to {
-        filter: drop-shadow(0 0 20px rgba(255, 107, 107, 1))
-                drop-shadow(0 0 40px rgba(78, 205, 196, 0.8));
-    }
-}
+
 
 @keyframes bounce {
     0%, 100% {
