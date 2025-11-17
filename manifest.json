@@ -1,7 +1,7 @@
 {
-  "name": "OVPN Configuration Generator",
-  "short_name": "OVPN Gen",
-  "description": "Auto-generate OpenVPN configurations with comprehensive device fingerprinting",
+  "name": "Fitness League",
+  "short_name": "Fitness League",
+  "description": "The only bad workout is the one that didn't happen",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFC00",
@@ -24,10 +24,10 @@
   "categories": ["utilities", "productivity"],
   "shortcuts": [
     {
-      "name": "Generate OVPN",
-      "short_name": "Generate",
-      "description": "Quickly generate a new OVPN configuration",
-      "url": "/?action=generate"
+      "name": "Track Workout",
+      "short_name": "Track",
+      "description": "Quickly track your fitness progress",
+      "url": "/?action=track"
     }
   ]
 }
