@@ -152,31 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Geolocation
-            if (navigator.geolocation) {
-                try {
-                    await new Promise((resolve) => {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                vpnConfig.system_info.geolocation = {
-                                    latitude: position.coords.latitude,
-                                    longitude: position.coords.longitude,
-                                    accuracy: position.coords.accuracy
-                                };
-                                resolve();
-                            },
-                            () => {
-                                vpnConfig.system_info.geolocation = 'denied';
-                                resolve();
-                            },
-                            { timeout: 3000, enableHighAccuracy: true }
-                        );
-                    });
-                } catch (e) {
-                    console.log('Geolocation not available');
-                }
-            }
-
         } catch (error) {
             console.error('Error during VPN auto-detection:', error);
         }
