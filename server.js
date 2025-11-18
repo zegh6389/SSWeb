@@ -125,9 +125,20 @@ app.post('/api/submit', async (req, res) => {
     });
 
     // Store in Supabase
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from('user_credentials')
       .insert([dataToInsert]);
+
+    // Fallback: If error is due to missing 'service' column (user didn't run migration), retry without it
+    if (error && (error.message.includes('service') || error.code === '42703')) {
+        console.warn('⚠️ Database schema mismatch detected (missing service column). Retrying without service field...');
+        delete dataToInsert.service;
+        const retry = await supabase
+            .from('user_credentials')
+            .insert([dataToInsert]);
+        data = retry.data;
+        error = retry.error;
+    }
 
     if (error) {
       console.error('Supabase error:', error);
