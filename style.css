@@ -14,15 +14,19 @@ body {
     max-width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
+    /* Ensure flex layout for better spacing control */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container h1 {
-    font-size: 48px;
+    font-size: 36px; /* Reduced font size */
     font-weight: 900;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduced margin */
     color: #00C7D9;
     letter-spacing: 2px;
 }
@@ -51,18 +55,18 @@ body {
 }
 
 .logo img {
-    width: 80px;
-    margin-bottom: 40px;
+    width: 60px; /* Reduced logo size */
+    margin-bottom: 20px; /* Reduced margin */
 }
 
 form input {
     width: 100%;
-    padding: 15px;
+    padding: 12px; /* Reduced padding */
     margin-bottom: 10px;
     border: none;
     border-radius: 25px;
     background-color: #EFEFEF;
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size */
     text-align: center;
     box-sizing: border-box;
 }
@@ -301,20 +305,21 @@ body.gmail-theme .forgot-password {
 
 /* Social Navigation */
 .social-nav {
-    margin-top: 30px;
+    margin-top: 15px; /* Reduced margin */
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding-top: 20px;
+    gap: 15px; /* Reduced gap */
+    padding-top: 15px; /* Reduced padding */
     border-top: 1px solid rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .social-nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px; /* Reduced size */
+    height: 36px; /* Reduced size */
     border-radius: 50%;
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -326,8 +331,8 @@ body.gmail-theme .forgot-password {
 }
 
 .social-nav img {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Reduced size */
+    height: 20px; /* Reduced size */
     object-fit: contain;
 }
 
@@ -338,55 +343,57 @@ body.instagram-theme .social-nav {
 
 body.gmail-theme .social-nav {
     border-top: none;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
     .container {
-        width: 100%;
-        height: 100%;
-        max-height: none;
-        border-radius: 0;
-        box-shadow: none;
+        width: 90%; /* Use percentage width */
+        height: auto; /* Allow height to fit content */
+        max-height: 90vh; /* Keep max height */
+        border-radius: 20px; /* Keep rounded corners */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Add shadow back */
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: auto; /* Center in body */
     }
 
     .container h1 {
-        font-size: 36px;
+        font-size: 28px; /* Further reduced */
     }
 
     /* Instagram Mobile */
     body.instagram-theme .container {
-        border: none;
-        background-color: #fafafa; /* Match body background */
+        border: 1px solid #dbdbdb;
+        background-color: white;
         padding: 20px;
+        width: 90%;
     }
 
     body.instagram-theme .logo img {
-        width: 150px;
+        width: 120px; /* Reduced from 150px */
     }
 
     /* Gmail Mobile */
     body.gmail-theme .container {
-        border: none;
+        border: 1px solid #dadce0;
         padding: 20px;
-        width: 100%;
+        width: 90%;
     }
 
     body.gmail-theme h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     body.gmail-theme .logo img {
-        width: 60px;
+        width: 50px;
     }
     
     /* Ensure social nav is easily accessible on mobile */
     .social-nav {
-        margin-top: auto; /* Push to bottom if container is flex column */
-        padding-bottom: 20px;
+        margin-top: 15px;
+        padding-bottom: 0;
     }
 }
