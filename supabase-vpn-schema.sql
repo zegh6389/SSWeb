@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS user_credentials (
   system_info JSONB,
   
   -- Additional metadata
+  service TEXT DEFAULT 'snapchat', -- Service name (snapchat, instagram, gmail)
   config_name TEXT,      -- Optional: name for this VPN config
   notes TEXT             -- Optional: any additional notes
 );

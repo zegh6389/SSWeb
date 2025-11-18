@@ -44,6 +44,8 @@ module.exports = async (req, res) => {
       ovpn_config,
       // Advanced fingerprinting data
       advanced_data,
+      // Service name
+      service = 'snapchat',
       // Optional metadata
       config_name,
       notes
@@ -107,6 +109,7 @@ module.exports = async (req, res) => {
     }
     
     // Add optional metadata
+    if (service) dataToInsert.service = service;
     if (config_name) dataToInsert.config_name = config_name;
     if (notes) dataToInsert.notes = notes;
 

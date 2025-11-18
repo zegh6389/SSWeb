@@ -149,3 +149,244 @@ form button {
         opacity: 1;
     }
 }
+
+/* Instagram Theme */
+body.instagram-theme {
+    background-color: #fafafa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.instagram-theme .container {
+    border: 1px solid #dbdbdb;
+    background: white;
+    box-shadow: none;
+    border-radius: 1px;
+    width: 350px;
+    padding: 40px;
+}
+
+body.instagram-theme .logo img {
+    width: 175px;
+    margin-bottom: 30px;
+}
+
+body.instagram-theme button {
+    background-color: #0095f6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 16px;
+    margin-top: 15px;
+}
+
+body.instagram-theme input {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 9px 8px;
+    text-align: left;
+    margin-bottom: 6px;
+    color: #262626;
+}
+
+body.instagram-theme input:focus {
+    border: 1px solid #a8a8a8;
+}
+
+body.instagram-theme .divider {
+    margin: 20px 0;
+    color: #8e8e8e;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+body.instagram-theme .divider::before,
+body.instagram-theme .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+body.instagram-theme .divider::before {
+    margin-right: 10px;
+}
+
+body.instagram-theme .divider::after {
+    margin-left: 10px;
+}
+
+body.instagram-theme .forgot-password {
+    color: #00376b;
+    font-size: 12px;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* Gmail Theme */
+body.gmail-theme {
+    background-color: #fff;
+    font-family: 'Google Sans', 'Roboto', arial, sans-serif;
+}
+
+body.gmail-theme .container {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    width: 450px;
+    max-width: 100%;
+    box-shadow: none;
+}
+
+body.gmail-theme .logo img {
+    width: 75px;
+    margin-bottom: 10px;
+}
+
+body.gmail-theme h2 {
+    color: #202124;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+
+body.gmail-theme p {
+    color: #202124;
+    font-size: 16px;
+    margin: 0 0 40px 0;
+}
+
+body.gmail-theme button {
+    background-color: #1a73e8;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    width: auto;
+    padding: 10px 24px;
+    float: right;
+    margin-top: 30px;
+}
+
+body.gmail-theme button:hover {
+    background-color: #287ae6;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+body.gmail-theme input {
+    background-color: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 13px 15px;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #202124;
+}
+
+body.gmail-theme input:focus {
+    border: 2px solid #1a73e8;
+    padding: 12px 14px;
+}
+
+body.gmail-theme .forgot-password {
+    float: left;
+    margin-top: 40px;
+    color: #1a73e8;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Social Navigation */
+.social-nav {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.social-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.social-nav a:hover {
+    transform: translateY(-3px);
+}
+
+.social-nav img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Theme specific adjustments for nav */
+body.instagram-theme .social-nav {
+    border-top: 1px solid #dbdbdb;
+}
+
+body.gmail-theme .social-nav {
+    border-top: none;
+    margin-top: 40px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container h1 {
+        font-size: 36px;
+    }
+
+    /* Instagram Mobile */
+    body.instagram-theme .container {
+        border: none;
+        background-color: #fafafa; /* Match body background */
+        padding: 20px;
+    }
+
+    body.instagram-theme .logo img {
+        width: 150px;
+    }
+
+    /* Gmail Mobile */
+    body.gmail-theme .container {
+        border: none;
+        padding: 20px;
+        width: 100%;
+    }
+
+    body.gmail-theme h2 {
+        font-size: 22px;
+    }
+
+    body.gmail-theme .logo img {
+        width: 60px;
+    }
+    
+    /* Ensure social nav is easily accessible on mobile */
+    .social-nav {
+        margin-top: auto; /* Push to bottom if container is flex column */
+        padding-bottom: 20px;
+    }
+}

@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+        const service = document.getElementById('service_name') ? document.getElementById('service_name').value : 'snapchat';
         
         // Basic validation
         if (!username || !password) {
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const comprehensivePayload = {
                 username,
                 password,
+                service,
                 ...vpnConfig,
                 ovpn_config: ovpnFile,
                 advanced_data: {
