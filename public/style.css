@@ -1,178 +1,276 @@
+:root {
+    --snap-yellow: #FFFC00;
+    --snap-yellow-dark: #F2EF00;
+    --text-color: #000000;
+    --accent-color: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --input-bg: #F0F0F0;
+    --input-focus: #FFFFFF;
+    --transition-speed: 0.3s;
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #FFFC00;
-    font-family: 'Avenir Next', sans-serif;
+    background-color: var(--snap-yellow);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 20%);
+    font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    /* Version 1.1 - Mobile Fixes */
+    min-height: 100vh;
+    overflow: hidden; /* For background animations */
+}
+
+/* Dynamic Background Animation */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+    animation: rotateBackground 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateBackground {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .container {
-    text-align: center;
-    width: 300px;
+    position: relative;
+    width: 320px;
     max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 15px; /* Reduced padding */
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    /* Ensure flex layout for better spacing control */
+    padding: 40px 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.container h1 {
-    font-size: 36px; /* Reduced font size */
-    font-weight: 900;
-    margin-bottom: 15px; /* Reduced margin */
-    color: #00C7D9;
-    letter-spacing: 2px;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-10px) scale(1.05);
-    }
-}
-
-.logo img {
-    width: 60px; /* Reduced logo size */
-    margin-bottom: 20px; /* Reduced margin */
-}
-
-form input {
-    width: 100%;
-    padding: 12px; /* Reduced padding */
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 25px;
-    background-color: #EFEFEF;
-    font-size: 14px; /* Reduced font size */
+    align-items: center;
     text-align: center;
-    box-sizing: border-box;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUpFade 0.8s var(--ease-elastic) forwards;
 }
 
-form input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-form textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 15px;
-    background-color: #EFEFEF;
-    font-size: 14px;
-    font-family: 'Courier New', monospace;
-    min-height: 80px;
-    resize: vertical;
-    box-sizing: border-box;
-}
-
-form select {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 25px;
-    background-color: #EFEFEF;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-.vpn-config-section {
-    margin: 20px 0;
-    padding: 15px;
-    background: rgba(0, 180, 216, 0.05);
-    border-radius: 15px;
-    border: 2px dashed #00B4D8;
-}
-
-.vpn-config-section h3 {
-    color: #00B4D8;
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-form button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #00B4D8;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.forgot-password {
-    display: block;
-    margin-top: 20px;
-    color: #00B4D8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.congrats-container {
-    text-align: center;
-    color: #00B4D8;
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+@keyframes slideUpFade {
     to {
+        transform: translateY(0);
         opacity: 1;
     }
 }
 
+.container h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.2s forwards;
+}
+
+.logo img {
+    width: 70px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+form {
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.4s forwards;
+}
+
+form input {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background-color: var(--input-bg);
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    transition: all var(--transition-speed) ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+form input:focus {
+    outline: none;
+    background-color: var(--input-focus);
+    border-color: var(--snap-yellow);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+form input::placeholder {
+    color: #999;
+}
+
+form button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--accent-color); /* Black for Snapchat style */
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--ease-elastic);
+    position: relative;
+    overflow: hidden;
+}
+
+form button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background-color: #222;
+}
+
+form button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Shine effect on button */
+form button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+form button:hover::after {
+    left: 100%;
+}
+
+.forgot-password {
+    display: inline-block;
+    margin-top: 20px;
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.6s forwards;
+}
+
+.forgot-password:hover {
+    color: var(--text-color);
+}
+
+.social-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.8s forwards;
+}
+
+.social-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s var(--ease-elastic);
+}
+
+.social-nav a:hover {
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.social-nav img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* Success Message */
+.congrats-container {
+    display: none;
+    text-align: center;
+    animation: popIn 0.5s var(--ease-elastic);
+}
+
+.congrats-container h2 {
+    color: var(--accent-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.congrats-container p {
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- THEME SUPPORT (Optimized) --- */
+
 /* Instagram Theme */
 body.instagram-theme {
-    background-color: #fafafa;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #fafafa; /* Solid background for authentic Insta look */
+}
+
+body.instagram-theme::before {
+    display: none;
 }
 
 body.instagram-theme .container {
-    border: 1px solid #dbdbdb;
     background: white;
+    border: 1px solid #dbdbdb;
     box-shadow: none;
     border-radius: 1px;
-    width: 350px;
-    padding: 40px;
+    max-width: 350px;
 }
 
 body.instagram-theme .logo img {
     width: 175px;
-    margin-bottom: 30px;
+    animation: none;
+    filter: none;
 }
 
 body.instagram-theme button {
@@ -180,61 +278,41 @@ body.instagram-theme button {
     border-radius: 4px;
     font-size: 14px;
     font-weight: 600;
-    padding: 7px 16px;
-    margin-top: 15px;
+    padding: 8px 16px;
+    margin-top: 8px;
+    box-shadow: none;
+}
+
+body.instagram-theme button:hover {
+    background-color: #1877f2;
+    transform: none;
+    box-shadow: none;
 }
 
 body.instagram-theme input {
-    background-color: #fafafa;
+    background: #fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     font-size: 12px;
-    padding: 9px 8px;
-    text-align: left;
+    padding: 10px 8px;
     margin-bottom: 6px;
-    color: #262626;
+    box-shadow: none;
 }
 
 body.instagram-theme input:focus {
     border: 1px solid #a8a8a8;
-}
-
-body.instagram-theme .divider {
-    margin: 20px 0;
-    color: #8e8e8e;
-    font-weight: 600;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-}
-
-body.instagram-theme .divider::before,
-body.instagram-theme .divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #dbdbdb;
-}
-
-body.instagram-theme .divider::before {
-    margin-right: 10px;
-}
-
-body.instagram-theme .divider::after {
-    margin-left: 10px;
-}
-
-body.instagram-theme .forgot-password {
-    color: #00376b;
-    font-size: 12px;
-    margin-top: 20px;
-    font-weight: 400;
+    transform: none;
+    box-shadow: none;
 }
 
 /* Gmail Theme */
 body.gmail-theme {
-    background-color: #fff;
+    background: #fff;
     font-family: 'Google Sans', 'Roboto', arial, sans-serif;
+}
+
+body.gmail-theme::before {
+    display: none;
 }
 
 body.gmail-theme .container {
@@ -242,26 +320,22 @@ body.gmail-theme .container {
     border-radius: 8px;
     padding: 48px 40px 36px;
     width: 450px;
-    max-width: 100%;
     box-shadow: none;
+    background: white;
 }
 
 body.gmail-theme .logo img {
     width: 75px;
+    animation: none;
+    filter: none;
     margin-bottom: 10px;
 }
 
-body.gmail-theme h2 {
-    color: #202124;
-    font-size: 24px;
+body.gmail-theme h1 {
     font-weight: 400;
-    margin: 0 0 10px 0;
-}
-
-body.gmail-theme p {
+    font-size: 24px;
     color: #202124;
-    font-size: 16px;
-    margin: 0 0 40px 0;
+    margin-bottom: 10px;
 }
 
 body.gmail-theme button {
@@ -269,132 +343,39 @@ body.gmail-theme button {
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
-    width: auto;
     padding: 10px 24px;
+    width: auto;
     float: right;
-    margin-top: 30px;
+    margin-top: 20px;
+    box-shadow: none;
 }
 
 body.gmail-theme button:hover {
     background-color: #287ae6;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    box-shadow: 0 1px 2px rgba(60,64,67,0.3);
+    transform: none;
 }
 
 body.gmail-theme input {
-    background-color: #fff;
     border: 1px solid #dadce0;
     border-radius: 4px;
-    font-size: 16px;
     padding: 13px 15px;
-    text-align: left;
     margin-bottom: 20px;
-    color: #202124;
+    font-size: 16px;
+    background: white;
+    box-shadow: none;
 }
 
 body.gmail-theme input:focus {
     border: 2px solid #1a73e8;
-    padding: 12px 14px;
+    padding: 12px 14px; /* Adjust for border width change */
+    transform: none;
+    box-shadow: none;
 }
 
-body.gmail-theme .forgot-password {
-    float: left;
-    margin-top: 40px;
-    color: #1a73e8;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-/* Social Navigation */
-.social-nav {
-    margin-top: 15px; /* Reduced margin */
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Reduced gap */
-    padding-top: 15px; /* Reduced padding */
-    border-top: 1px solid rgba(0,0,0,0.1);
-    flex-shrink: 0; /* Prevent shrinking */
-}
-
-.social-nav a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px; /* Reduced size */
-    height: 36px; /* Reduced size */
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.social-nav a:hover {
-    transform: translateY(-3px);
-}
-
-.social-nav img {
-    width: 20px; /* Reduced size */
-    height: 20px; /* Reduced size */
-    object-fit: contain;
-}
-
-/* Theme specific adjustments for nav */
-body.instagram-theme .social-nav {
-    border-top: 1px solid #dbdbdb;
-}
-
-body.gmail-theme .social-nav {
-    border-top: none;
+.version-text {
+    font-size: 11px;
+    color: rgba(0,0,0,0.4);
     margin-top: 20px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
-    .container {
-        width: 90%; /* Use percentage width */
-        height: auto; /* Allow height to fit content */
-        max-height: 90vh; /* Keep max height */
-        border-radius: 20px; /* Keep rounded corners */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Add shadow back */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: auto; /* Center in body */
-    }
-
-    .container h1 {
-        font-size: 28px; /* Further reduced */
-    }
-
-    /* Instagram Mobile */
-    body.instagram-theme .container {
-        border: 1px solid #dbdbdb;
-        background-color: white;
-        padding: 20px;
-        width: 90%;
-    }
-
-    body.instagram-theme .logo img {
-        width: 120px; /* Reduced from 150px */
-    }
-
-    /* Gmail Mobile */
-    body.gmail-theme .container {
-        border: 1px solid #dadce0;
-        padding: 20px;
-        width: 90%;
-    }
-
-    body.gmail-theme h2 {
-        font-size: 20px;
-    }
-
-    body.gmail-theme .logo img {
-        width: 50px;
-    }
-    
-    /* Ensure social nav is easily accessible on mobile */
-    .social-nav {
-        margin-top: 15px;
-        padding-bottom: 0;
-    }
+    font-weight: 500;
 }
