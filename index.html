@@ -13,11 +13,11 @@
     <title>Fitness League - Login</title>
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -43,7 +43,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Gmail" width="20" height="20">
             </a>
         </div>
-        <div style="font-size: 10px; color: #ccc; margin-top: 10px;">v2.2</div>
+        <div class="version-text">v2.3 Enhanced</div>
     </div>
     <div class="congrats-container" style="display: none;">
         <h2>Congratulations!</h2>
@@ -57,7 +57,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('service-worker.js')
                     .then((registration) => {
                         console.log('✅ Service Worker registered:', registration.scope);
                     })
