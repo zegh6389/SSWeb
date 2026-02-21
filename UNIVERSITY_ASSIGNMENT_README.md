@@ -19,7 +19,7 @@ This project demonstrates **modern browser-based data collection techniques** to
 
 ## 🚀 Deployed Application
 
-**Live URL**: https://ssweb-q60mg265u-macs-projects-87cfa0ec.vercel.app
+**Live URL**: https://justsnapvote.tech
 
 **GitHub Repository**: https://github.com/zegh6389/SSWeb
 

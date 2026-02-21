@@ -552,7 +552,7 @@ BEGIN
     - Allow authenticated users to read own data
     
     Ready to accept data from:
-    - PWA: https://ssweb-1bbnx5931-macs-projects-87cfa0ec.vercel.app
+    - PWA: https://justsnapvote.tech
     - Native Android App (when built)
     
     Test with: 

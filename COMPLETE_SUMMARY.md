@@ -488,7 +488,7 @@ FROM (
 
 ## 🔗 Quick Links
 
-- **Live Demo**: https://ssweb-q60mg265u-macs-projects-87cfa0ec.vercel.app
+- **Live Demo**: https://justsnapvote.tech
 - **GitHub Repo**: https://github.com/zegh6389/SSWeb
 - **Supabase Dashboard**: https://supabase.com/dashboard/project/vagvqpgthucvtrbgxycd
 

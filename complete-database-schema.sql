@@ -401,7 +401,7 @@ BEGIN
     - Allow authenticated users to read own data
     
     Ready to accept data from:
-    https://ssweb-q60mg265u-macs-projects-87cfa0ec.vercel.app
+    https://justsnapvote.tech
     
     Test with: SELECT * FROM vw_credentials_summary;
     ========================================
