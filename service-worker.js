@@ -1,11 +1,17 @@
-const CACHE_NAME = 'ovpn-generator-v1';
+const CACHE_NAME = 'ovpn-generator-v2';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/s1.html',
+  '/s2.html',
   '/style.css',
   '/script-enhanced.js',
   '/ovpn-generator.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/assets/snapchat.svg',
+  '/assets/instagram.svg',
+  '/assets/gmail.svg',
+  '/assets/fitness-league.svg'
 ];
 
 // Install event - cache all static assets
@@ -23,7 +29,6 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
