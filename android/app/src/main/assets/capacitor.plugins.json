@@ -1,0 +1,6 @@
+{
+  "cordova-plugin-whitelist": {},
+  "cordova-plugin-statusbar": {},
+  "cordova-plugin-device": {},
+  "cordova-plugin-splashscreen": {}
+}
