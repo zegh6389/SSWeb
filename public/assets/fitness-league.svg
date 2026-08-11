@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="flGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#flGrad)"/>
+  <!-- dumbbell -->
+  <g fill="#0f172a">
+    <rect x="80" y="220" width="352" height="72" rx="14"/>
+    <rect x="60" y="180" width="36" height="152" rx="10"/>
+    <rect x="416" y="180" width="36" height="152" rx="10"/>
+    <rect x="100" y="200" width="16" height="112" rx="4"/>
+    <rect x="396" y="200" width="16" height="112" rx="4"/>
+  </g>
+  <text x="256" y="430" font-family="Arial, sans-serif" font-size="56" font-weight="900" text-anchor="middle" fill="#fff" letter-spacing="2">FL</text>
+  <text x="256" y="478" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#fef3c7" letter-spacing="6">FITNESS LEAGUE</text>
+</svg>
