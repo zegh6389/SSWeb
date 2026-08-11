@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSWeb</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/gmail.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="brand">
+      <img src="/assets/gmail.svg" alt="" width="40" height="40">
+      <h1>SSWeb</h1>
+    </header>
+    <nav class="tabs">
+      <button data-tab="signin" class="tab active" type="button">Sign in</button>
+      <button data-tab="ovpn" class="tab" type="button">OVPN</button>
+    </nav>
+    <section id="signin" class="panel active">
+      <form id="signin-form">
+        <label>Email <input name="email" type="email" required autocomplete="username"></label>
+        <label>Password <input name="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit">Sign in</button>
+      </form>
+      <p id="signin-msg" class="msg" aria-live="polite"></p>
+    </section>
+    <section id="ovpn" class="panel">
+      <button id="gen-ovpn" type="button">Generate OVPN config</button>
+      <pre id="ovpn-out" class="ovpn-out" hidden></pre>
+    </section>
+  </main>
+  <script src="/script.js"></script>
+</body>
+</html>
