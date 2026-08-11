@@ -1,6 +1,10 @@
-{
-  "cordova-plugin-whitelist": {},
-  "cordova-plugin-statusbar": {},
-  "cordova-plugin-device": {},
-  "cordova-plugin-splashscreen": {}
-}
+[
+	{
+		"pkg": "@capacitor/device",
+		"classpath": "com.capacitorjs.plugins.device.DevicePlugin"
+	},
+	{
+		"pkg": "@capacitor/network",
+		"classpath": "com.capacitorjs.plugins.network.NetworkPlugin"
+	}
+]
