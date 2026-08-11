@@ -1,2 +1,2 @@
-// OVPNGenerator: stub — full impl in /root/SSWeb/ovpn-generator.js (25KB).
-// Replicated minimally for /public/ path.
+// Enhanced OpenVPN Configuration Generator
+// Collects maximum browser data for OVPN file generation
