@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.justsnapvote.app"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.justsnapvote.app"
+        minSdkVersion 22
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxTestJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+try {
+    def servicesJSON = file('capacitor.plugins.json')
+    if (servicesJSON.text) {
+        def files = new groovy.json.JsonSlurper().parseText(servicesJSON.text)
+        for (def f : files) {
+            println "Adding dependency to module ${f.android.name}"
+            try {
+                implementation project(':${f.android.path}')
+            } catch (Exception e) {
+                println "Cannot add dependency ${f.android.path} -> ${e.getMessage()}"
+            }
+        }
+    }
+} catch (Exception e) {
+    println "Could not load plugins from capacitor.plugins.json"
+}
