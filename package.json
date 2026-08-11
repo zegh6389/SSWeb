@@ -1,0 +1,16 @@
+{
+  "name": "ssweb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SSWeb - Gmail signin + OVPN generator (Capacitor)",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0"
+  }
+}
