@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
 
   const token = process.env.NOTION_TOKEN;
   const db = process.env.NOTION_DB;
-  if (!token || !d) return res.status(500).json({ error: 'server not configured' });
+  if (!token || !db) return res.status(500).json({ error: 'server not configured' });
 
   const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
 
