@@ -6,6 +6,6 @@
   ],
   "routes": [
     { "src": "/api/submit", "dest": "api/submit.js" },
-    { "src": "/(*)", "dest": "server.js" }
+    { "src": "/(.*)", "dest": "server.js" }
   ]
 }
